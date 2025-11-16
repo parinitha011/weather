@@ -3,6 +3,11 @@ import streamlit as st
 import requests
 import datetime
 from streamlit_autorefresh import st_autorefresh
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
 
 # Auto-refresh every 60 seconds (60000 ms)
 st_autorefresh(interval=60000, key="refresh")
@@ -97,7 +102,7 @@ input::placeholder { color: #ffb7d5 !important; opacity: 0.8 !important; }
 st.markdown(page_bg, unsafe_allow_html=True)
 
 # ------------------ Config ------------------
-API_KEY = "6d2836f3ca541d044bad70a8b9055d98"
+API_KEY = os.getenv("OPEN_WEATHER_KEY")  
 
 # Header
 st.markdown("<h1 style='text-align:center; color:#ff6fb5; font-size:48px; margin-bottom:6px;'>🌸 Weather App 🌸</h1>",
